@@ -6,29 +6,38 @@
         xmlns:local="clr-namespace:StratosPattasAssesment"
         mc:Ignorable="d"
         Title="ContactDetailsWindow" Height="650" Width="500">
-    <Grid>
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="lblHeader">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <Style TargetType="Label" x:Key="lblCustomerDetails">
+            <!--<Setter Property="FontStyle" Value="Italic"/>-->
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="0,0,0,5" />
+        </Style>
+    </Window.Resources>
+        <Grid>
         <StackPanel Margin="10">
-            
-
-            <Label Content="Customer Id:" FontWeight="Bold" FontSize="18"/>
-            <Label x:Name="lblCustomerId" FontSize="16"/>
-            <Label Content="First Name:" FontWeight="Bold" FontSize="18"/>
-            <Label x:Name="lblFirstName" FontSize="16"/>
-            <Label Content="Last Name:" FontWeight="Bold" FontSize="18"/>
-            <Label x:Name="lblLastName" FontSize="16"/>
-            <Label Content="Address:" FontWeight="Bold" FontSize="18"/>
-            <Label x:Name="lblAddress" FontSize="16"/>
-            <Label Content="Phone:" FontWeight="Bold" FontSize="18"/>
-            <Label x:Name="lblPhone" FontSize="16"/>
-            <Label Content="Comments:" FontWeight="Bold" FontSize="18"/>
-            <TextBox x:Name="txtBoxComments" Height="40" FontSize="16"/>
-            <ComboBox x:Name="comboBox1" SelectionChanged="comboBox_SelectionChanged" Width="100" Height="30" Margin="0,30,0,0" HorizontalAlignment="Left" Background="Aqua">
+            <Label Content="Customer Id:" Style="{StaticResource lblHeader}"/>
+            <Label x:Name="lblCustomerId" Style="{StaticResource lblCustomerDetails}"/>
+            <Label Content="First Name:" Style="{StaticResource lblHeader}"/>
+            <Label x:Name="lblFirstName" Style="{StaticResource lblCustomerDetails}"/>
+            <Label Content="Last Name:" Style="{StaticResource lblHeader}"/>
+            <Label x:Name="lblLastName" Style="{StaticResource lblCustomerDetails}"/>
+            <Label Content="Address:" Style="{StaticResource lblHeader}"/>
+            <Label x:Name="lblAddress" Style="{StaticResource lblCustomerDetails}"/>
+            <Label Content="Phone:" Style="{StaticResource lblHeader}"/>
+            <Label x:Name="lblPhone" Style="{StaticResource lblCustomerDetails}"/>
+            <Label Content="Comments:" Style="{StaticResource lblHeader}"/>
+            <TextBox x:Name="txtBoxComments" Height="40" FontSize="16"  TextChanged="txtBoxComments_TextChanged"/>
+            <ComboBox x:Name="comboBox1" SelectedValuePath="Content" SelectionChanged="comboBox_SelectionChanged" Width="100" Height="30" Margin="0,30,0,0" HorizontalAlignment="Left">
                 <ComboBoxItem>Result1</ComboBoxItem>
                 <ComboBoxItem>Result2</ComboBoxItem>
                 <ComboBoxItem>Result3</ComboBoxItem>
             </ComboBox>
             <Button Content="Save"
-                    Name="updateButton"
+                    x:Name="updateButton" Visibility="Hidden"
                     Click="updateButton_Click" Background="Green" Foreground="White" Width="100" Height="50" FontSize="18" FontWeight="Bold"
                      Margin="50,50,50,5"/>
         </StackPanel>

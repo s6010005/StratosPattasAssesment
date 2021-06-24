@@ -23,6 +23,7 @@ namespace StratosPattasAssesment
     public partial class ContactDetailsWindow : Window
     {
         Customer selectedCustomer;
+        private static bool visible = false;
         public ContactDetailsWindow(Customer selectedCustomer)
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace StratosPattasAssesment
             {
                 int rowCount = 0;
 
-                string query = "UPDATE [ContactInformations] SET [Comments] = '" + txtBoxComments.Text + "'";
+                string query = "UPDATE [ContactInformations] SET [Comments] = '" + txtBoxComments.Text + "' WHERE ID = '" + lblCustomerId.Content + "'";
 
                 sqlCommand.CommandText = query;
                 sqlCommand.CommandType = CommandType.Text;
@@ -110,9 +111,28 @@ namespace StratosPattasAssesment
 
                 throw ex;
             }
+           
+        }
 
+        private void txtBoxComments_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
-            Close();
+            string comments = txtBoxComments.Text;
+            if (!visible)
+            {
+                visible = true;
+            }
+            else
+            {
+                updateButton.Visibility = Visibility.Visible;
+            }
+
+     
+        }
+
+        private void toggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

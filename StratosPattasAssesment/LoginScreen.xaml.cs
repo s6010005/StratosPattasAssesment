@@ -23,8 +23,8 @@ namespace StratosPattasAssesment
 
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
-        private string username = "stratos";
-        private string password = "pattas1984";
+        private string username = "1";
+        private string password = "1";
         public LoginScreen()
         {
             InitializeComponent();

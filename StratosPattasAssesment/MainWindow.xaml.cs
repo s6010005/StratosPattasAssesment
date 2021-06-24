@@ -30,6 +30,9 @@ namespace StratosPattasAssesment
             ReadDatabase();
         }
 
+        /// <summary>
+        /// Fetches data from DB(ContactInformations table) and fills listViewContactInformations ListView.
+        /// </summary>
         void ReadDatabase()
         {
             try
@@ -37,7 +40,7 @@ namespace StratosPattasAssesment
                 SqlConnection con = new SqlConnection();
                 SqlDataAdapter ad = new SqlDataAdapter();
                 SqlCommand cmd = new SqlCommand();
-                String str = "SELECT TOP (1) Id, FirstName, LastName, Address, Phone, Comments FROM ContactInformations";
+                String str = "SELECT Id, FirstName, LastName, Address, Phone, Comments FROM ContactInformations";
                 cmd.CommandText = str;
                 ad.SelectCommand = cmd;
                 con.ConnectionString = App.connectionString;
@@ -53,26 +56,31 @@ namespace StratosPattasAssesment
             }
         }
 
+        /// <summary>
+        /// Handles the SelectionChanged event of the listViewContactInformations control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="SelectionChangedEventArgs"/> instance containing the event data.</param>
         private void listViewContactInformations_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
             DataRowView dataRowView = (DataRowView)listViewContactInformations.SelectedItem;
 
-            Customer customer = new Customer
-            {
-                Id = Convert.ToInt32(dataRowView.Row[0]),
-                FirstName = Convert.ToString(dataRowView.Row[1]),
-                LastName = Convert.ToString(dataRowView.Row[2]),
-                Address = Convert.ToString(dataRowView.Row[3]),
-                Phone = Convert.ToInt64(dataRowView.Row[4]),
-                Comments = Convert.ToString(dataRowView.Row[5]),
-            };
-
             if (dataRowView != null)
             {
+                Customer customer = new Customer
+                {
+                    Id = Convert.ToInt32(dataRowView.Row[0]),
+                    FirstName = Convert.ToString(dataRowView.Row[1]),
+                    LastName = Convert.ToString(dataRowView.Row[2]),
+                    Address = Convert.ToString(dataRowView.Row[3]),
+                    Phone = Convert.ToInt64(dataRowView.Row[4]),
+                    Comments = Convert.ToString(dataRowView.Row[5]),
+                };
+
                 ContactDetailsWindow contactDetailsWindow = new ContactDetailsWindow(customer);
                 contactDetailsWindow.ShowDialog();
-
+                ReadDatabase();
             }
 
         }

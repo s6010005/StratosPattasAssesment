@@ -7,20 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="250" Width="800">
     <Grid x:Name="Grid1" Margin="10">
-        <ListView x:Name="listViewContactInformations"  FontSize="16" ItemsSource="{Binding Path=Table}" SelectionChanged="listViewContactInformations_SelectionChanged" Height="50" VerticalAlignment="Top">
+        <ListView x:Name="listViewContactInformations" FontSize="16" ItemsSource="{Binding Path=Table}" SelectionChanged="listViewContactInformations_SelectionChanged" VerticalAlignment="Top">
             <ListView.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="Gray" Offset="0"/>
                 </LinearGradientBrush>
             </ListView.Background>
             <ListView.View>
-                <GridView x:Name="GridView1">
+                <GridView x:Name="GridView1" >
+                    
                     <GridViewColumn Header="Id" Width="30" DisplayMemberBinding="{Binding Id}"/>
                     <GridViewColumn Header="First Name" Width="100" DisplayMemberBinding="{Binding FirstName}"/>
                     <GridViewColumn Header="Last Name" Width="100" DisplayMemberBinding="{Binding LastName}"/>
                     <GridViewColumn Header="Address" Width="100" DisplayMemberBinding="{Binding Address}"/>
                     <GridViewColumn Header="Phone" Width="100" DisplayMemberBinding="{Binding Phone}"/>
-                    <GridViewColumn Header="Comments"  Width="auto" DisplayMemberBinding="{Binding Comments}"/>
+                    <GridViewColumn Header="Comments"  Width="auto"  DisplayMemberBinding="{Binding Comments}"/>
                 </GridView>
             </ListView.View>
         </ListView>

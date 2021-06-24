@@ -8,6 +8,8 @@
         Title="ContactDetailsWindow" Height="650" Width="500">
     <Grid>
         <StackPanel Margin="10">
+            
+
             <Label Content="Customer Id:" FontWeight="Bold" FontSize="18"/>
             <Label x:Name="lblCustomerId" FontSize="16"/>
             <Label Content="First Name:" FontWeight="Bold" FontSize="18"/>
@@ -20,6 +22,11 @@
             <Label x:Name="lblPhone" FontSize="16"/>
             <Label Content="Comments:" FontWeight="Bold" FontSize="18"/>
             <TextBox x:Name="txtBoxComments" Height="40" FontSize="16"/>
+            <ComboBox x:Name="comboBox1" SelectionChanged="comboBox_SelectionChanged" Width="100" Height="30" Margin="0,30,0,0" HorizontalAlignment="Left" Background="Aqua">
+                <ComboBoxItem>Result1</ComboBoxItem>
+                <ComboBoxItem>Result2</ComboBoxItem>
+                <ComboBoxItem>Result3</ComboBoxItem>
+            </ComboBox>
             <Button Content="Save"
                     Name="updateButton"
                     Click="updateButton_Click" Background="Green" Foreground="White" Width="100" Height="50" FontSize="18" FontWeight="Bold"

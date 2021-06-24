@@ -23,8 +23,8 @@ namespace StratosPattasAssesment
 
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
-        //private string username = "stratos";
-        //private string password = "pattas1984";
+        private string username = "stratos";
+        private string password = "pattas1984";
         public LoginScreen()
         {
             InitializeComponent();
@@ -33,8 +33,8 @@ namespace StratosPattasAssesment
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
 
-            string password = Properties.Settings.Default.password;
-            string username = Properties.Settings.Default.username;
+            //string password = Properties.Settings.Default.password;
+            //string username = Properties.Settings.Default.username;
             if (txtUsername.Text == username && txtPassword.Password == password)
             {
                 MainWindow mainPage = new MainWindow();

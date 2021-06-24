@@ -27,6 +27,11 @@ namespace StratosPattasAssesment
         {
             InitializeComponent();
 
+            ReadDatabase();
+        }
+
+        void ReadDatabase()
+        {
             try
             {
                 SqlConnection con = new SqlConnection();
@@ -46,7 +51,6 @@ namespace StratosPattasAssesment
             {
                 MessageBox.Show("Can't connect to DB");
             }
-            
         }
 
         private void listViewContactInformations_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -68,8 +72,9 @@ namespace StratosPattasAssesment
             {
                 ContactDetailsWindow contactDetailsWindow = new ContactDetailsWindow(customer);
                 contactDetailsWindow.ShowDialog();
+
             }
-                
+
         }
     }
 }

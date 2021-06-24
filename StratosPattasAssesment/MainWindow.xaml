@@ -7,13 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="250" Width="800">
     <Grid x:Name="Grid1" Margin="10">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="0.5*"/>
-        </Grid.RowDefinitions>
         <ListView x:Name="listViewContactInformations"  FontSize="16" ItemsSource="{Binding Path=Table}" SelectionChanged="listViewContactInformations_SelectionChanged" Height="50" VerticalAlignment="Top">
             <ListView.Background>
                 <LinearGradientBrush>
@@ -31,6 +24,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="test" Grid.Row="1" HorizontalAlignment="Right"/>
     </Grid>
 </Window>

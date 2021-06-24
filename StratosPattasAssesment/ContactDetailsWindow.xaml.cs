@@ -76,5 +76,43 @@ namespace StratosPattasAssesment
 
             Close();
         }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            string strConn = App.connectionString;
+            SqlConnection sqlConnection = new SqlConnection(strConn);
+            SqlCommand sqlCommand = new SqlCommand();
+
+            try
+            {
+                int rowCount = 0;
+                string query = "INSERT INTO [DropdownSelected] (SelectedValue, CustomerId) VALUES ('" + comboBox1.SelectedValue + "','" + lblCustomerId.Content + "') ";
+
+                sqlCommand.CommandText = query;
+                sqlCommand.CommandType = CommandType.Text;
+                sqlCommand.Connection = sqlConnection;
+                sqlCommand.CommandTimeout = 12 * 3600;
+
+                // Open.  
+                sqlConnection.Open();
+
+                // Result.  
+                rowCount = sqlCommand.ExecuteNonQuery();
+
+                // Close.  
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                // Close.  
+                sqlConnection.Close();
+
+                throw ex;
+            }
+
+
+            Close();
+        }
     }
 }
